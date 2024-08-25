@@ -3,7 +3,7 @@ const joinGameClick = document.getElementById("joinClickArea")
 const codeField = document.getElementById("codeField")
 const createGame = document.getElementById("createGame")
 const codeBox = document.getElementById("codeBox")
-const SERVER = "https://noughtssquared.server.thrio.dev:5073"
+const SERVER = "https://noughtssquared.thrio.dev:5073"
 const codeCharSet = "ABCDEFGHJKLMNOPQRSTUVWXYZ1234567890"
 const loading = '    <div id="loading">\
 <div class="trapezium" id="tr0"></div>\
