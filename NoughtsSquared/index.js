@@ -47,7 +47,7 @@ function SendEnteredCode() { // sends the code entered into the code box to the 
             gameCode: codeField.value,
         }
         var enterCodeReq = new XMLHttpRequest() // sets up the HTTPS request
-        enterCodeReq.open("POST", server)
+        enterCodeReq.open("POST", SERVER)
         enterCodeReq.withCredentials = true
         joinGameClick.innerHTML = loading
         joinGameClick.children[0].classList.add("lr")
@@ -111,7 +111,7 @@ createGameOnclick = function() {
     createGame.children[0].classList.add("lc")
     createGame.onclick = null
     var joinGameReq = new XMLHttpRequest()
-    joinGameReq.open("POST", server)
+    joinGameReq.open("POST", SERVER)
     joinGameReq.withCredentials = true
     joinGameReq.addEventListener("load", JoinGameHandler)
     joinGameReq.addEventListener("abort", ResetCreateClick)
