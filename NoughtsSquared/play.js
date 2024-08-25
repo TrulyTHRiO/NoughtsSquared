@@ -1,4 +1,4 @@
-const server = new WebSocket("wss://home.chessarmies.com:5072")
+const server = new WebSocket("wss://noughtssquared.server.thrio.dev:5073")
 
 function GetCookies() { // gets stored cookies
     let cookies = document.cookie
