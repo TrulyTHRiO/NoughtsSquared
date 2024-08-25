@@ -1,0 +1,278 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    transition: background-color 0.2s;
+}
+
+.grid {
+    display: grid;
+}
+
+.small-grid {
+    grid-template-columns: repeat(3, 9dvmin);
+    grid-template-rows: repeat(3, 9dvmin);
+    margin: auto;
+    padding: 0.5dvmin;
+
+    background-color: white;
+    border: solid salmon 2px;
+    gap: 0;
+
+    transition: background-color 0.2s;
+}
+
+.nought {
+    background-color: lightblue;
+}
+
+.cross {
+    background-color: rgb(255, 195, 173);
+    /* background-color: pink; 255 192 203 looks to similar to 255 200 200 */
+}
+
+.win-token {
+    pointer-events: none;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* top: 0; */
+    /* left: 0; */
+    font-size: 27dvmin;
+    width: 27dvmin;
+    height: 27dvmin;
+}
+
+.nought-token {
+    color: blue;
+    padding-bottom: 3.8dvmin;
+}
+
+.cross-token {
+    color: red;
+    padding-bottom: 3.05dvmin;
+}
+
+.stale-token {
+    color: black;
+    padding-bottom: 6dvmin;
+}
+
+.nought-body {
+    background-color: rgb(100, 100, 255);
+}
+
+.cross-body {
+    background-color: rgb(255, 100, 100);
+}
+
+.stale-body {
+    background-color: rgb(100, 100, 100);
+    /* background-color: rgb(150, 10, 100); */
+}
+
+.nought-win {
+    background-color: rgb(200, 200, 255) !important;
+}
+
+.cross-win {
+    background-color: rgb(255, 200, 200) !important;
+}
+
+.stale-win {
+    background-color: rgb(200, 200, 200) !important;
+}
+
+.tile {
+    border: solid grey 1px;
+    /* background-color: blueviolet; */
+    display: flex;
+    width: 9dvmin;
+    height: 9dvmin;
+    margin: 0;
+    font-size: 9dvmin;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1.2dvmin;
+    transition: background-color 0.2s;
+}
+
+.tile.available:hover {
+    background-color: rgb(196, 196, 196);
+}
+
+.ox-icon {
+    pointer-events: none;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 7.5dvmax;
+    align-items: center;
+    justify-content: center;
+
+    transition: color .5s ease-out, transform .5s ease-out;
+}
+
+#back-button {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 800;
+    background-color: orange;
+    height: 100dvh;
+    width: 1.5dvw;
+    min-width: 20px;
+    font-size: 2dvw;
+
+    transition: width 0.05s linear, font-size 0.05s linear;
+}
+
+#back-button:hover {
+    width: 3dvw;
+    font-size: 3.4dvw;
+}
+
+#dropdown {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    height: 60dvh;
+    width: 100dvw;
+    background-color: rgb(255, 190, 69);
+
+    border-bottom: 1dvh solid orange;
+    box-sizing: content-box;
+    /* just to make sure there is no gap between the div and the close button */
+
+    transition: top 0.05s linear;
+}
+
+#dropdown.hidden {
+    top: -60dvh;
+}
+
+#dropdown-button {
+    display: flex;
+    position: absolute;
+    bottom: -3dvh;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 800;
+    background-color: orange;
+    height: 3dvh;
+    width: 100dvw;
+    /* min-height: 20px; */
+    font-size: 2dvh;
+
+    transition: height 0.05s linear, bottom 0.05s linear, font-size 0.05s linear;
+}
+
+#dropdown-button > p {
+    transform: rotate(180deg);
+    transition: transform 0.05s linear;
+}
+
+.hidden > #dropdown-button > p {
+    transform: rotate(0deg);
+}
+
+#dropdown-button:hover {
+    height: 6dvh;
+    font-size: 3.4dvh;
+    bottom: -6dvh;
+}
+
+#nought-icon {
+    color: lightblue;
+}
+
+#nought-icon.turn {
+    color: blue;
+    transform: scale(2);
+}
+
+#cross-icon {
+    color: pink;
+}
+
+#cross-icon.turn {
+    color: red;
+    transform: scale(2);
+}
+
+#game-area {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+#big-grid {
+    grid-template-columns: repeat(3, 30dvmin);
+    grid-template-rows: repeat(3, 30dvmin);
+
+    /* background-color: black; */
+    /* border: solid black 20px; */
+}
+
+#win-text {
+    margin-top: 5dvh;
+}
+
+/* #game-over {
+    width: 70dvw;
+    height: 70dvh;
+    background-color: white;
+    position: fixed;
+    border-radius: 0.2em;
+    left: 15dvw;
+    top: 15dvh;
+} */
+
+@media only screen and (orientation: portrait) {
+    #game-area {
+        flex-direction: column;
+    }
+
+    #back-button {
+        width: 5dvh;
+        height: 5dvh;
+        margin: 2.5dvh;
+        font-size: 5dvh;
+        padding-bottom: 0.7dvh;
+        font-weight: 400;
+        transition: font-weight 0.05s linear;
+    }
+
+    #back-button:hover {
+        width: 5dvh;
+        height: 5dvh;
+        margin: 2.5dvh;
+        font-size: 5dvh;
+        padding-bottom: 0.7dvh;
+        font-weight: 800;
+    }
+}
