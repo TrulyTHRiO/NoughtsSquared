@@ -45,7 +45,7 @@ function RequestToken(location) {
         gameCode: gameCode,
         location: location
     }
-    server.send(request)
+    server.send(JSON.stringify(request))
 }
 
 server.onopen = function(event) { // on connecting to the server, sets up the event listener to handle any received data 
