@@ -63,6 +63,7 @@ server.onopen = function(event) { // on connecting to the server, sets up the ev
         switch (parseData.responseType) {
             case "GAMEOBJECT": {
                 smallGrids = parseData.smallGrids
+                currentBoard = parseData.currentBoard
                 DrawFromMemory()
                 break
             }
