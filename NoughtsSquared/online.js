@@ -30,8 +30,6 @@ const grids = document.querySelectorAll(".small-grid")
 var droppedDown = false
 document.getElementById("dropdown-button").addEventListener("click", () => {droppedDown ? document.getElementById("dropdown").classList.add("hidden") : document.getElementById("dropdown").classList.remove("hidden"); droppedDown = !droppedDown})
 
-DrawFromMemory()
-
 function PlaceToken(location) {
     let board = Math.floor(location/9)
     console.log(board)
