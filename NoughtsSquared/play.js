@@ -19,7 +19,6 @@ function GetCookies() { // gets stored cookies
     if (UUID == undefined || gameCode == undefined) {
         window.location.href = "https://thrio.dev/NoughtsSquared/"
     } else {
-        document.getElementById("code").innerHTML = gameCode
         var sendReq = true
     }
 }
@@ -46,14 +45,6 @@ function RequestToken(location) {
         gameCode: gameCode,
         location: location
     }
-}
-
-document.getElementById("startGameButton").onclick = function() {
-    let request = {
-        requestType: "STARTPIECEASSIGNMENT",
-        gameCode: gameCode,
-    }
-    server.send(JSON.stringify(request))
 }
 
 server.onopen = function(event) { // on connecting to the server, sets up the event listener to handle any received data 
