@@ -15,26 +15,20 @@
 
 <body>
     <div id="title">
-        <h1 id="titleBG"><img id="titlePawnWhite" src="pieces/white-pawn.png">  ULTIMATE NOUGHTS AND CROSSES  <img id="titlePawnBlack" src="pieces/black-pawn.png"></h1>
+        <h1 id="titleBG"><img id="titlePawnWhite" src="pieces/white-pawn.png">  CHESS ARMIES  <img id="titlePawnBlack" src="pieces/black-pawn.png"></h1>
     </div>
     <div id="buttons">
       <div class="enterButton" id="createGame">
-        <div class="padBox"></div>
-        <div id="createText"><h1 class="buttonTitle">Create a room</h1></div>
+        <h1 class="buttonTitle">Create a room</h1>
       </div>
       <div class="enterButton" id="joinGame">
-        <div id="codeBox">
+        <div id="joinClickArea"><h1 class="buttonTitle">Join a room</h1></div>
+        <div id="codeBox" class="moveUp COMMENTEDOUTbehindCOMMENTEDOUT">
           <h3 id="codeText">Code:</h3>
           <input id="codeField" type="text">
         </div>
-        <div id="joinClickArea"><h1 class="buttonTitle">Join a room</h1></div>
+        <span id="joinButtonHoverPadding"></span>
       </div>
-      <a href="local">
-        <div class="enterButton" id="localGame">
-          <div class="padBox"></div>
-          <h1 class="buttonTitle">Play locally</h1>
-        </div>
-      </a>
     </div>
     <div id="board">
         

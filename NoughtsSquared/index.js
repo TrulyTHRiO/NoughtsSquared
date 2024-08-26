@@ -1,31 +1,18 @@
 const joinGame = document.getElementById("joinGame")
 const joinGameClick = document.getElementById("joinClickArea")
+const createText = document.getElementById("createText")
 const codeField = document.getElementById("codeField")
 const createGame = document.getElementById("createGame")
 const codeBox = document.getElementById("codeBox")
 const SERVER = "https://noughtssquared.thrio.dev:5073"
 const codeCharSet = "ABCDEFGHJKLMNOPQRSTUVWXYZ1234567890"
-const loading = '    <div id="loading">\
-<div class="trapezium" id="tr0"></div>\
-<div class="trapezium" id="tr1"></div>\
-<div class="trapezium" id="tr2"></div>\
-<div class="trapezium" id="tr3"></div>\
-<div class="trapezium" id="tr4"></div>\
-<div class="trapezium" id="tr5"></div>\
-<div class="trapezium" id="tr6"></div>\
-<div class="trapezium" id="tr7"></div>\
-<div class="trapezium" id="tr8"></div>\
-<div class="trapezium" id="tr9"></div>\
-<div class="trapezium" id="tr10"></div>\
-<div class="trapezium" id="tr11"></div>\
-<div class="trapezium" id="tr12"></div>\
-</div>'
+const loading = `<div class="loader"></div>`
 
 function JoinGameHandler() {
     var response = JSON.parse(this.responseText)
     if (response.responseType == "NOGAMEFOUND") {
         IncorrectCode()
-    } else {
+    } else {IncorrectCode
         ResetCreateClick()
         ResetJoinClick()
         window.location.href = "https://thrio.dev/NoughtsSquared/play"
@@ -62,22 +49,22 @@ function SendEnteredCode() { // sends the code entered into the code box to the 
 }
 
 function IncorrectCode() {
-    joinGameClick.classList.add("incorrectCode")
+    joinGame.classList.add("incorrectCode")
     joinGame.style = "transition: none; background-color: transparent"
     setTimeout(function() {
         joinGame.style = ""
-        joinGameClick.classList.remove("incorrectCode")
+        joinGame.classList.remove("incorrectCode")
     },400)
     ResetJoinClick()
 }
 
-joinGameClick.onclick = function() {
-    joinGameClick.onclick = function() {
-        joinGameClick.onclick = null
+joinGame.onclick = function() {
+    joinGame.onclick = function() {
+        joinGame.onclick = null
         SendEnteredCode()
     }
     joinGame.classList.add("enterButtonClicked")
-    codeBox.classList.remove("moveUp")
+    // codeBox.classList.remove("moveUp")
     // codeBox.classList.add("moveDown")
     // setTimeout(function() {
     //     codeBox.classList.remove("behind")
@@ -93,7 +80,7 @@ codeField.onkeydown = function(keyboardEvent) {
 }
 
 function ResetCreateClick() {
-    createGame.innerHTML = '<h1 class="buttonTitle">Create a room</h1>'
+    createText.innerHTML = '<h1 class="buttonTitle">Create a room</h1>'
     createGame.onclick = createGameOnclick 
 }
 
@@ -107,8 +94,8 @@ function ResetJoinClick() {
 }
 
 createGameOnclick = function() {
-    createGame.innerHTML = loading
-    createGame.children[0].classList.add("lc")
+    createText.innerHTML = loading
+    // createText.children[0].classList.add("lc")
     createGame.onclick = null
     var joinGameReq = new XMLHttpRequest()
     joinGameReq.open("POST", SERVER)

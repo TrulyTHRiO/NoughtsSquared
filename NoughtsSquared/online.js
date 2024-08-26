@@ -88,8 +88,6 @@ function PlaceToken(location) {
                 currentBoard = -2
                 GameOver()
             }
-            window.localStorage.setItem("smallGrids", JSON.stringify(smallGrids))
-            window.localStorage.setItem("currentBoard", currentBoard)
             ColourGrids()
         }
         
@@ -109,8 +107,6 @@ function RestartGame() {
     winner = -1
     gameOver = false
     DrawFromMemory()
-    window.localStorage.removeItem("smallGrids")
-    window.localStorage.removeItem("currentBoard")
 }
 
 function DrawFromMemory() {

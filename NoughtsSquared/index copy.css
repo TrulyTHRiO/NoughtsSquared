@@ -2,12 +2,12 @@
     100% { transform: translate(0, 20vw); }
 }
 
-@keyframes vertical-shaking {
-    0% { transform: translate(35vw, 0) }
-    25% { transform: translate(35vw, 5px) }
-    50% { transform: translateY(35vw, -5px) }
-    75% { transform: translateY(35vw, 5px) }
-    100% { transform: translateY(35vw, 0) }
+@keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
 }
 
 body {
@@ -16,11 +16,6 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: aliceblue;
-}
-
-a {
-    color: inherit;
-    text-decoration: inherit; /* no underline */
 }
 
 h1,h3 {
@@ -39,12 +34,9 @@ h3 {
 
 .buttonTitle {
     font-size: 2.5vw;
-    /* height: 2.5vw; */
-    height: 100%;
-    /* margin-top: 8.75vw; */
-    /* margin-bottom: 8.75vw; */
-    padding: 0;
-    margin: 0;
+    height: 2.5vw;
+    margin-top: 8.75vw;
+    margin-bottom: 8.75vw;
     width: 100%;
     text-align: center;
     display: flex;
@@ -55,60 +47,27 @@ h3 {
 
 .enterButton {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     transition: 0.2s;
     justify-content: baseline;
     align-items: center;
-    height: 20vh;
+    background-color: blueviolet;
+    height: 20vw;
     width: 70vw;
-    margin-left: -35vw;
+    margin-left: 10%;
+    margin-right: 10%;
     background-clip: content-box;
     outline: none;
     border: none;
-    background-color: orange;
 
     clip-path: polygon(
         0% 0%,
-        90% 0%,
+        60% 0%,
         100% 50%,
-        90% 100%,
-        90% 100%,
+        60% 100%,
+        60% 100%,
         0% 100%
         );
-}
-
-.padBox {
-    width: 100%;
-}
-
-#createGame {
-
-}
-
-.enterButton:hover, .enterButton:focus {
-    transform: translateX(35vw);
-    z-index: 2;
-    isolation: unset;
-}
-
-#createGame:hover, #createGame:focus {
-    background-color: blueviolet;
-}
-
-#joinGame {
-    
-}
-
-#joinGame:hover, #joinGame:focus {
-    background-color: blue;
-}
-
-#localGame {
-
-}
-
-#localGame:hover, #localGame:focus {
-    background-color: orangered;
 }
 
 #title {
@@ -142,12 +101,13 @@ h3 {
 
 #buttons {
     display: flex;
+    flex-direction: column;
     height: 80vh;
     width: 100vw;
     vertical-align: middle;
-    flex-direction: column;
-    justify-content: space-around;
-    /* align-items: center; */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .moveUp {
@@ -168,7 +128,7 @@ h3 {
 
 #codeBox {
     /* height: 4vw; */
-    /* background-color: #2e2e2e; */
+    background-color: #2e2e2e;
     border: none;
     outline: none;
     border-radius: 0%;
@@ -182,7 +142,6 @@ h3 {
 #codeField {
     margin: 1%;
     width: 98%;
-    height: 8vh;
     box-sizing: border-box;
 }
 
@@ -194,7 +153,27 @@ h3 {
 }
 
 .enterButtonClicked {
-    transform: translateX(35vw);
+    transform: scale(1.2);
+}
+
+.enterButton:focus, .enterButton:hover {
+    transform: scale(1.2);
+    z-index: 2;
+    background-color: orangered;
+    background-size: 20vw 20vw;
+    isolation: unset;
+}
+
+#createGame:hover, #createGame:focus {
+    background-image: url("pieces/Create.png");
+    /* padding-left: 20vw; */
+}
+
+#joinClickArea:hover, #joinClickArea:focus {
+    background-image: url("pieces/Join.png");
+    background-color: orange;
+    background-size: 20vw 20vw;
+    /* padding-right: 20vw; */
 }
 
 #titlePawnWhite {
@@ -214,15 +193,15 @@ h3 {
 }
 
 .incorrectCode {
-    animation: vertical-shaking 0.4s forwards;
+    animation: horizontal-shaking 0.4s forwards;
     background-image: none !important;
     background-color: red !important;
     color: rgb(63, 63, 63);
 }
 
-#joinClickArea, #createText {
+#joinClickArea {
     width: 100%;
     height: 100%;
-    /* background-color: blue; */
+    background-color: blue;
     transition: 0.2s;
 }
