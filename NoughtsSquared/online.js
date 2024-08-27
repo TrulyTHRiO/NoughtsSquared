@@ -86,7 +86,7 @@ function PlaceToken(location) {
             currentBoard = bigGrid[location%9] != -1 ? -1 : (smallGrids[location%9].includes(-1) ? location%9 : -1)
             if (gameOver) {
                 currentBoard = -2
-                GameOver()
+                GameOver(false)
             }
             ColourGrids()
         }
@@ -114,7 +114,7 @@ function DrawFromMemory() {
     if (DetermineBoardWinner(bigGrid) != -1) {
         gameOver = true
         winner = DetermineBoardWinner(bigGrid)
-        GameOver()
+        GameOver(true)
     }
     bigGrid.forEach((token, location) => {
         DrawWin(location, token)
@@ -229,9 +229,11 @@ function ColourGrids() {
     if (currentBoard != -1) grids[currentBoard].classList.add(["nought", "cross"][currentTurn])
 }
 
-function GameOver() {
-    let dropdownMenu = document.getElementById("dropdown")
-    setTimeout(() => {dropdownMenu.classList.remove("hidden"); droppedDown = true}, 1000)
+function GameOver(refreshed) {
+    if (!refreshed) {
+        let dropdownMenu = document.getElementById("dropdown")
+        setTimeout(() => {dropdownMenu.classList.remove("hidden"); droppedDown = true}, 1000)
+    }
     dropdownMenu.querySelector("#win-text").innerHTML = winner == -2 ? "DRAW!" : `${"○×"[winner]} WINS!`
     if (winner == -2) document.body.classList.add("stale-body")
 }
