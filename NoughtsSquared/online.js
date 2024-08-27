@@ -30,8 +30,8 @@ var gameOver = false // can also be determined if currentBoard == -2
 const tiles = document.querySelectorAll(".tile")
 const grids = document.querySelectorAll(".small-grid")
 
-var droppedDown = false
-document.getElementById("dropdown-button").addEventListener("click", () => {droppedDown ? document.getElementById("dropdown").classList.remove("hidden") : document.getElementById("dropdown").classList.add("hidden"); droppedDown = !droppedDown})
+var droppedDown = true
+document.getElementById("dropdown-button").addEventListener("click", () => {droppedDown ? document.getElementById("dropdown").classList.add("hidden") : document.getElementById("dropdown").classList.remove("hidden"); droppedDown = !droppedDown})
 
 function PlaceToken(location) {
     let board = Math.floor(location/9)
@@ -115,7 +115,6 @@ function DrawFromMemory() {
         gameOver = true
         winner = DetermineBoardWinner(bigGrid)
         GameOver()
-        return
     }
     bigGrid.forEach((token, location) => {
         DrawWin(location, token)
