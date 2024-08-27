@@ -17,9 +17,10 @@ function GetCookies() { // gets stored cookies
     var UUID = cookies.UUID
     var gameCode = cookies.gameCode
     if (UUID == undefined || gameCode == undefined) {
-        window.location.href = "https://thrio.dev/NoughtsSquared/"
+        // window.location.href = "https://thrio.dev/NoughtsSquared/"
     } else {
         var sendReq = true
+        document.getElementById("game-code").innerHTML = gameCode
     }
 }
 

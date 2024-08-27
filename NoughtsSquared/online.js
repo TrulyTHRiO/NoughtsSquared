@@ -31,7 +31,7 @@ const tiles = document.querySelectorAll(".tile")
 const grids = document.querySelectorAll(".small-grid")
 
 var droppedDown = false
-document.getElementById("dropdown-button").addEventListener("click", () => {droppedDown ? document.getElementById("dropdown").classList.add("hidden") : document.getElementById("dropdown").classList.remove("hidden"); droppedDown = !droppedDown})
+document.getElementById("dropdown-button").addEventListener("click", () => {droppedDown ? document.getElementById("dropdown").classList.remove("hidden") : document.getElementById("dropdown").classList.add("hidden"); droppedDown = !droppedDown})
 
 function PlaceToken(location) {
     let board = Math.floor(location/9)
@@ -112,7 +112,9 @@ function RestartGame() {
 function DrawFromMemory() {
     bigGrid = DetermineAllBoardWinners()
     if (DetermineBoardWinner(bigGrid) != -1) {
-        RestartGame()
+        gameOver = true
+        winner = DetermineBoardWinner(bigGrid)
+        GameOver()
         return
     }
     bigGrid.forEach((token, location) => {

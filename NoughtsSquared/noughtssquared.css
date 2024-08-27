@@ -238,8 +238,11 @@ body {
     /* border: solid black 20px; */
 }
 
-#win-text {
+#text-container {
     margin-top: 5dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* #game-over {
