@@ -59,7 +59,7 @@ function IncorrectCode() {
 }
 
 joinGame.onclick = function() {
-    joinGame.onclick = function() {
+    joinGameClick.onclick = function() {
         joinGame.onclick = null
         SendEnteredCode()
     }
